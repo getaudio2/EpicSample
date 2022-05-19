@@ -8,6 +8,7 @@ public class PlayerMove : MonoBehaviour
     public float runSpeed = 2;
     public float jumpSpeed = 3;
     private SpriteRenderer sprite;
+    public bool attacking = false;
  
     Rigidbody2D rb2d;
     public float velocity = 0.0f;
@@ -55,7 +56,16 @@ public class PlayerMove : MonoBehaviour
         transform.position = pos;
 
         if (Input.GetKey("z")) {
-            GetComponent<Animator>().SetTrigger("Attack1");
+            if (attacking == false) {
+                GetComponent<Animator>().SetTrigger("Attack1");
+                attacking = true;
+            }
+            if (this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Attack1"))
+            {
+                attacking = true;
+            } else {
+                attacking = false;
+            }
         }
     }
 }
