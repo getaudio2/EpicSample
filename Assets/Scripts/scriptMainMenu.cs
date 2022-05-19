@@ -10,7 +10,8 @@ public class scriptMainMenu : MonoBehaviour
     }
 
     public void StartGame(){
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("EpicSample");
+        Debug.Log("hola xd");
     }
 }
 
