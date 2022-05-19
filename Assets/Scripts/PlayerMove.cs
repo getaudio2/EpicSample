@@ -9,6 +9,8 @@ public class PlayerMove : MonoBehaviour
     public float jumpSpeed = 3;
     private SpriteRenderer sprite;
     public bool attacking = false;
+    public float speed;
+    public Vector3 lastPosition = Vector3.zero;
  
     Rigidbody2D rb2d;
     public float velocity = 0.0f;
@@ -18,7 +20,6 @@ public class PlayerMove : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
-        //spriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -30,7 +31,7 @@ public class PlayerMove : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space)){
             if (CheckGround.isGrounded) {
-                rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed);
+                rb2d.velocity = new Vector2(rb2d.velocity.y, jumpSpeed);
                 GetComponent<Animator>().SetTrigger("Jump");
             }
         } 
@@ -67,5 +68,10 @@ public class PlayerMove : MonoBehaviour
                 attacking = false;
             }
         }
+    }
+
+    void FixedUpdate() {
+        speed = (transform.position - lastPosition).magnitude;
+        lastPosition = transform.position;
     }
 }
