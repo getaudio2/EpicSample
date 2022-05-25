@@ -52,7 +52,7 @@ public class Sensor_HeroKnight : MonoBehaviour {
     }
 
     // Start is called before the first frame update
-    void Start()
+    /*void Start()
     {
         
     }
@@ -61,5 +61,5 @@ public class Sensor_HeroKnight : MonoBehaviour {
     void Update()
     {
         
-    }
+    }*/
 }
