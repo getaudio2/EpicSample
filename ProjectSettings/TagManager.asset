@@ -9,6 +9,7 @@ TagManager:
   - Skeleton
   - Campfire
   - Void
+  - Chest
   layers:
   - Default
   - TransparentFX

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class HeroKnight : MonoBehaviour {
 
@@ -32,6 +33,10 @@ public class HeroKnight : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
+        if (health == 0f) {
+            SceneManager.LoadScene("GameOver");
+        }
+
         m_grounded = Sensor_HeroKnight.isGrounded;
         m_animator.SetBool("Grounded", m_grounded);
         //Debug.Log("hero is grounded: " + Sensor_HeroKnight.isGrounded);
@@ -166,6 +171,8 @@ public class HeroKnight : MonoBehaviour {
             health = health - 1f;
         } else if (collision.gameObject.tag == "Void") {
             health = 0f;
+        } else if (collision.gameObject.tag == "Chest") {
+            SceneManager.LoadScene("Victory");
         }
     }
 
