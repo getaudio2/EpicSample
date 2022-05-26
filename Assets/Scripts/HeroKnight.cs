@@ -162,6 +162,10 @@ public class HeroKnight : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision){
         if (collision.gameObject.tag == "Skeleton") {
             health = health - 10f;
+        } else if (collision.gameObject.tag == "Campfire") {
+            health = health - 1f;
+        } else if (collision.gameObject.tag == "Void") {
+            health = 0f;
         }
     }
 
