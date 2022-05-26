@@ -383,6 +383,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1826498261446573814, guid: 9ad5361ad949811438954f4c4e9647eb, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3470959653414912218, guid: 9ad5361ad949811438954f4c4e9647eb, type: 3}
       propertyPath: m_SortingOrder
       value: 10
@@ -395,9 +399,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: HeroKnight
       objectReference: {fileID: 0}
+    - target: {fileID: 5698833531552611173, guid: 9ad5361ad949811438954f4c4e9647eb, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7302159076287162611, guid: 9ad5361ad949811438954f4c4e9647eb, type: 3}
       propertyPath: health
       value: 97.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 7332699630707424482, guid: 9ad5361ad949811438954f4c4e9647eb, type: 3}
+      propertyPath: m_Layer
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7788645600128153394, guid: 9ad5361ad949811438954f4c4e9647eb, type: 3}
       propertyPath: m_RootOrder
@@ -442,6 +454,18 @@ PrefabInstance:
     - target: {fileID: 7788645600128153394, guid: 9ad5361ad949811438954f4c4e9647eb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006945614093482204, guid: 9ad5361ad949811438954f4c4e9647eb, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8522488695794756800, guid: 9ad5361ad949811438954f4c4e9647eb, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8831082514624668986, guid: 9ad5361ad949811438954f4c4e9647eb, type: 3}
+      propertyPath: m_Layer
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ad5361ad949811438954f4c4e9647eb, type: 3}
@@ -702,7 +726,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.15266487, y: 0.9485378, z: -10}
+  m_LocalPosition: {x: 0.8182554, y: 0.94542456, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -964,12 +988,12 @@ MonoBehaviour:
   m_ScreenX: 0.5
   m_ScreenY: 0.70000005
   m_CameraDistance: 10
-  m_DeadZoneWidth: 0.5
+  m_DeadZoneWidth: 0.1
   m_DeadZoneHeight: 0.1
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
-  m_SoftZoneWidth: 0.8
-  m_SoftZoneHeight: 0.8
+  m_SoftZoneWidth: 1
+  m_SoftZoneHeight: 1.17
   m_BiasX: 0
   m_BiasY: 0
   m_CenterOnActivate: 1
@@ -2886,7 +2910,7 @@ GameObject:
   - component: {fileID: 1781948424}
   m_Layer: 0
   m_Name: La Mansanita
-  m_TagString: Untagged
+  m_TagString: Mansanita
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2949,7 +2973,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7293598183456022363, guid: 1ddc9afd21fec77489b1248d18f31b68, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2969,8 +2993,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781948419}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4, y: -0.268, z: 0}
-  m_LocalScale: {x: 2.1873558, y: 2.257104, z: 1}
+  m_LocalPosition: {x: 12.71, y: -0.17, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children:
   - {fileID: 1037832814}
   m_Father: {fileID: 0}
@@ -3490,7 +3514,7 @@ GameObject:
   - component: {fileID: 1832779119}
   - component: {fileID: 1832779118}
   - component: {fileID: 1832779120}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TX Village Props Campfire
   m_TagString: Campfire
   m_Icon: {fileID: 0}
@@ -4213,6 +4237,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9014488969754245326, guid: faf4c03bec2f464468bca37308966339, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014488969754245326, guid: faf4c03bec2f464468bca37308966339, type: 3}
       propertyPath: m_TagString
       value: Skeleton
       objectReference: {fileID: 0}
@@ -4275,6 +4303,14 @@ PrefabInstance:
     - target: {fileID: 9014488971195750013, guid: faf4c03bec2f464468bca37308966339, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014488971195750013, guid: faf4c03bec2f464468bca37308966339, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014488971558758000, guid: faf4c03bec2f464468bca37308966339, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: faf4c03bec2f464468bca37308966339, type: 3}

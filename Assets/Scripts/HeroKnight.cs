@@ -21,13 +21,26 @@ public class HeroKnight : MonoBehaviour {
     private float               m_rollCurrentTime;
 
     public float health = 100f;
+    public GameObject SkeletonObject;
+    public GameObject CampfireObject;
+    public GameObject AppleObject;
+    public SkeletonScript skeletonScript;
+    public float distanceHS;
+    public float distanceHC;
+    public float distanceHA;
 
     // Use this for initialization
     void Start ()
     {
+        SkeletonObject = GameObject.FindWithTag("Skeleton");
+        CampfireObject = GameObject.FindWithTag("Campfire");
+        AppleObject = GameObject.FindWithTag("Mansanita");
+        skeletonScript = SkeletonObject.GetComponent<SkeletonScript>();
         m_animator = GetComponent<Animator>();
         m_body2d = GetComponent<Rigidbody2D>();
         m_groundSensor = transform.Find("GroundSensor").gameObject.GetComponent<Sensor_HeroKnight>();
+        distanceHS = Vector3.Distance (transform.position, SkeletonObject.transform.position);
+        distanceHC = Vector3.Distance (transform.position, CampfireObject.transform.position);
     }
 
     // Update is called once per frame
@@ -36,11 +49,14 @@ public class HeroKnight : MonoBehaviour {
         if (health == 0f) {
             SceneManager.LoadScene("GameOver");
         }
+        if (SkeletonObject != null) {
+            distanceHS = Vector3.Distance (transform.position, SkeletonObject.transform.position);
+        }
+        distanceHC = Vector3.Distance (transform.position, CampfireObject.transform.position);
+        distanceHA = Vector3.Distance (transform.position, AppleObject.transform.position);
 
         m_grounded = Sensor_HeroKnight.isGrounded;
         m_animator.SetBool("Grounded", m_grounded);
-        //Debug.Log("hero is grounded: " + Sensor_HeroKnight.isGrounded);
-        //Debug.Log("hero is grounded: " + m_grounded);
 
         // Increase timer that controls attack combo
         m_timeSinceAttack += Time.deltaTime;
@@ -93,6 +109,10 @@ public class HeroKnight : MonoBehaviour {
         //Attack
         if(Input.GetKeyDown("z") && m_timeSinceAttack > 0.25f && !m_rolling)
         {
+            if (distanceHS < 3f) { 
+                skeletonScript.skeleHealth = skeletonScript.skeleHealth - 10;
+            }
+            
             m_currentAttack++;
 
             // Loop back to one after third attack
@@ -165,15 +185,25 @@ public class HeroKnight : MonoBehaviour {
     }*/
 
     private void OnTriggerEnter2D(Collider2D collision){
+
         if (collision.gameObject.tag == "Skeleton") {
-            health = health - 10f;
+            Physics2D.IgnoreCollision(SkeletonObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         } else if (collision.gameObject.tag == "Campfire") {
+            Physics2D.IgnoreCollision(CampfireObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        }
+
+        if (distanceHS < 2f && SkeletonObject != null){
+            health = health - 10f;
+        } else if (distanceHC < 2f){
             health = health - 1f;
+        } else if (distanceHA < 1f) {
+            health = 100f;
         } else if (collision.gameObject.tag == "Void") {
             health = 0f;
         } else if (collision.gameObject.tag == "Chest") {
             SceneManager.LoadScene("Victory");
         }
+
     }
 
 }

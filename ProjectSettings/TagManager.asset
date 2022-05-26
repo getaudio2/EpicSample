@@ -10,6 +10,7 @@ TagManager:
   - Campfire
   - Void
   - Chest
+  - Mansanita
   layers:
   - Default
   - TransparentFX
