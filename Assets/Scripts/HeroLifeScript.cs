@@ -1,38 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HeroLifeScript : MonoBehaviour
 {
-    public int vidas;
-    public int maxVidas;
-    public GameObject jugador;
-    private HeroLifeScript puntosVida;
+    
+    private Image healthBar;
+    public float currentHealth;
+    private float maxHealth = 100f;
+    HeroKnight player;
 
     // Start is called before the first frame update
     void Start()
     {
-        vidas = 2;
-        maxVidas = 5;
+        healthBar = GetComponent<Image>();
+        player = FindObjectOfType<HeroKnight>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        currentHealth = player.health;
+        healthBar.fillAmount = currentHealth / maxHealth;
     }
 
-    public void perderVida(int cantVida) {
-        vidas = vidas - cantVida;
-
-        if (vidas <= 0) {
-            Debug.Log("muerto xd");
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision){
-        jugador = GameObject.FindWithTag("Player");
-        puntosVida = jugador.GetComponent<HeroLifeScript>();
-        puntosVida.perderVida(2);
-    }
 }

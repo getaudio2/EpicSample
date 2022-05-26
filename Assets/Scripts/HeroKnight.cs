@@ -19,6 +19,7 @@ public class HeroKnight : MonoBehaviour {
     private float               m_rollDuration = 8.0f / 14.0f;
     private float               m_rollCurrentTime;
 
+    public float health = 100f;
 
     // Use this for initialization
     void Start ()
@@ -147,6 +148,20 @@ public class HeroKnight : MonoBehaviour {
             m_delayToIdle -= Time.deltaTime;
                 if(m_delayToIdle < 0)
                     m_animator.SetInteger("AnimState", 0);
+        }
+    }
+
+    /*public void perderVida(int cantVida) {
+        vidas = vidas - cantVida;
+
+        if (vidas <= 0) {
+            Debug.Log("muerto xd");
+        }
+    }*/
+
+    private void OnTriggerEnter2D(Collider2D collision){
+        if (collision.gameObject.tag == "Skeleton") {
+            health = health - 10f;
         }
     }
 
